@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 
 
 import android.annotation.SuppressLint;
@@ -34,9 +34,9 @@ public class CursorViewModel extends AndroidViewModel {
     }
 
     // this uses the Convenience method to add something to the database and then update the cursor.
-    public void add(String Name, String Cate, String Date, String Amot, String Note) {
+    public void add(String Note) {
         db.open();
-        db.insertName(Name, Cate, Date, Amot, Note);
+        db.insertName(Note);
         myCursor.setValue(db.getAllNames());
         db.close();
     }
@@ -60,11 +60,10 @@ public class CursorViewModel extends AndroidViewModel {
     }
     @SuppressLint("Range")
     public Cursor Query(String selection){
-        String[] projection = {mySQLiteHelper.KEY_ROWID, mySQLiteHelper.KEY_NAME, mySQLiteHelper.KEY_CATE,
-                mySQLiteHelper.KEY_DATE, mySQLiteHelper.KEY_AMOT, mySQLiteHelper.KEY_NOTE};
+        String[] projection = {mySQLiteHelper.KEY_ROWID, mySQLiteHelper.KEY_NOTE};
         String helpSelect = mySQLiteHelper.KEY_ROWID + "=" + selection;
         db.open();
-        Cursor newCursor = db.qbQuery("Expenses", projection, helpSelect, null, null);
+        Cursor newCursor = db.qbQuery("Notes", projection, helpSelect, null, null);
         newCursor.moveToPosition(0); //apparently that works
         db.close();
         return newCursor;

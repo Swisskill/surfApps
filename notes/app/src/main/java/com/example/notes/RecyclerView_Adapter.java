@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 //@author Will Brant with help from
 // https://www.c-sharpcorner.com/article/recyclerview-in-andriod-with-java/
 import android.annotation.SuppressLint;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class RecyclerView_Adapter extends RecyclerView.Adapter<View_Holder> {
 
-    expend exp;
+    notes exp;
     private onItemClickListener listener;
 
     //List<exData> list = Collections.emptyList();
@@ -54,14 +54,10 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<View_Holder> {
     public void onBindViewHolder(@NonNull View_Holder holder, int position) {
         //Use the provided View Holder on the onCreateViewHolder method to populate the current row on the RecyclerView
         pCursor.moveToPosition(position);
-        holder.name.setText(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_NAME))); //todo: maybe put this in?
-        holder.cate.setText(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_CATE))); //todo: maybe put this in?
-        holder.date.setText(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_DATE))); //todo: maybe put this in?
-        holder.amot.setText(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_AMOT))); //todo: maybe put this in?
         holder.note.setText(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_NOTE))); //todo: maybe put this in?
 
         Log.wtf("BIG ID is ", pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_ROWID) ));
-        holder.name.setTag(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_ROWID)));
+        holder.note.setTag(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_ROWID)));
     }
     public void setCursor(Cursor cursor) {
         pCursor = cursor;

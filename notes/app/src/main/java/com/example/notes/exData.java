@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 
 //@author Will Brant
 //WARNING: DEPRECATED FILE

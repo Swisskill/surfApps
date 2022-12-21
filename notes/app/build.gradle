@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.expenses'
+    namespace 'com.example.notes'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.expenses"
+        applicationId "com.example.notes"
         minSdk 26
         targetSdk 32
         versionCode 1

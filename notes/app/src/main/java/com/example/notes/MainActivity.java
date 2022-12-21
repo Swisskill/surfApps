@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager;
 
         fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.container, new expend()).commit();
-
+        fragmentManager.beginTransaction().add(R.id.container, new notes()).commit();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 
 
 import android.content.ContentValues;
@@ -55,12 +55,8 @@ public class myDatabase {
     }
 
     //InsertName is wrapper method, so the activity doesn't have to build  ContentValues for the insert.
-    public long insertName(String name, String cate, String date, String amot, String note) {
+    public long insertName(String note) {
         ContentValues initialValues = new ContentValues();
-        initialValues.put(mySQLiteHelper.KEY_NAME, name);
-        initialValues.put(mySQLiteHelper.KEY_CATE, cate);
-        initialValues.put(mySQLiteHelper.KEY_DATE, date);
-        initialValues.put(mySQLiteHelper.KEY_AMOT, amot);
         initialValues.put(mySQLiteHelper.KEY_NOTE, note);
 
         return db.insert(mySQLiteHelper.TABLE_NAME, CONFLICT_FAIL, initialValues);
@@ -73,8 +69,7 @@ public class myDatabase {
     public Cursor getAllNames() {
         //SELECT KEY_NAME, KEY_SCORE FROM DATABASE_TABLE SORTBY KEY_NAME;
         Cursor mCursor = qbQuery(mySQLiteHelper.TABLE_NAME,   //table name
-                new String[]{mySQLiteHelper.KEY_ROWID, mySQLiteHelper.KEY_NAME, mySQLiteHelper.KEY_CATE,
-                        mySQLiteHelper.KEY_DATE, mySQLiteHelper.KEY_AMOT, mySQLiteHelper.KEY_NOTE},  //projection, ie columns.
+                new String[]{mySQLiteHelper.KEY_ROWID,mySQLiteHelper.KEY_NOTE},  //projection, ie columns.
                 null,  //selection,  we want everything.
                 null, // String[] selectionArgs,  again, we want everything.
                 null//mySQLiteHelper.KEY_NAME// String sortOrder  by name as the sort.

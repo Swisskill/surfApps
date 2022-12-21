@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 //@author Will Brant with help from
 // https://www.c-sharpcorner.com/article/recyclerview-in-andriod-with-java/
 
@@ -12,23 +12,15 @@ import org.w3c.dom.Text;
 
 public class View_Holder extends RecyclerView.ViewHolder {
 
-    TextView name;
-    TextView cate;
-    TextView date;
-    TextView amot;
     TextView note;
 
     View_Holder(View itemView, final RecyclerView_Adapter.onItemClickListener listener) {
         super(itemView);
-        name = (TextView) itemView.findViewById(R.id.name);
-        cate = (TextView) itemView.findViewById(R.id.cate);
-        date = (TextView) itemView.findViewById(R.id.date);
-        amot = (TextView) itemView.findViewById(R.id.amot);
         note = (TextView) itemView.findViewById(R.id.note);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(name.getTag().toString());
+                listener.onItemClick(note.getTag().toString());
             }
         });
 

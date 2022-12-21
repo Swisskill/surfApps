@@ -1,4 +1,4 @@
-package com.example.expenses;
+package com.example.notes;
 
 
 import android.util.Log;
@@ -17,25 +17,17 @@ public class mySQLiteHelper extends SupportSQLiteOpenHelper.Callback {
     private static final String TAG = "mySQLiteHelper";
 
     //column names for the table.
-    public static final String KEY_NAME = "Name";
-    public static final String KEY_CATE = "Cate";
-    public static final String KEY_DATE = "Date";
-    public static final String KEY_AMOT = "Amot";
     public static final String KEY_NOTE = "Note";
     public static final String KEY_ROWID = "_id";   //required field for the cursorAdapter
 
     public static final String DATABASE_NAME = "myDatabase.db";
-    public static final String TABLE_NAME = "Expenses";
-    private static final int DATABASE_VERSION = 4;
+    public static final String TABLE_NAME = "Notes";
+    private static final int DATABASE_VERSION = 5;
 
     // Database creation sql statement
     private static final String DATABASE_CREATE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     KEY_ROWID + " integer PRIMARY KEY autoincrement," +  //this line is required for the cursorAdapter.
-                    KEY_NAME + " TEXT, " +
-                    KEY_CATE + " TEXT, " +
-                    KEY_DATE + " TEXT, " +
-                    KEY_AMOT + " TEXT, " +
                     KEY_NOTE + " TEXT )";
 
 
