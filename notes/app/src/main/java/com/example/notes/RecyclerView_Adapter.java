@@ -22,7 +22,6 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<View_Holder> {
     notes exp;
     private onItemClickListener listener;
 
-    //List<exData> list = Collections.emptyList();
     int list;
     Context context;
     private Cursor pCursor;
@@ -56,7 +55,7 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<View_Holder> {
         pCursor.moveToPosition(position);
         holder.note.setText(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_NOTE))); //todo: maybe put this in?
 
-        Log.wtf("BIG ID is ", pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_ROWID) ));
+        Log.wtf("ID is ", pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_ROWID) ));
         holder.note.setTag(pCursor.getString(pCursor.getColumnIndex(mySQLiteHelper.KEY_ROWID)));
     }
     public void setCursor(Cursor cursor) {

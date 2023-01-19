@@ -7,8 +7,10 @@
     android:layout_margin="5dp"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="5dp">
+    <!--to set the color in xml: -->
+    <!--card_view:cardBackgroundColor="@color/colorPrimary"-->
 
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -21,6 +23,7 @@
         android:text="note"
         android:textColor="#fff"
         android:textSize="20sp" />
+
 
 </LinearLayout>
 </androidx.cardview.widget.CardView>
