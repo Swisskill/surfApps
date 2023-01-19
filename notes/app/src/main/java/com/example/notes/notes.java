@@ -37,6 +37,7 @@ import java.time.LocalDate;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -134,12 +135,12 @@ public class notes extends Fragment {
         builder.setPositiveButton(dialType, new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                checkEmpty(set_note);
+                checkEmpty(set_note, dial);
                 logControl();
                 if(dial == 1){
                     mCursor.add(Note);
                 } else{
-                    mCursor.Update("Expenses", dbControl(), String.valueOf(ID), null);
+                    mCursor.Update("Notes", dbControl(), String.valueOf(ID), null);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -152,9 +153,13 @@ public class notes extends Fragment {
         builder.show();
     }
     //---------------------------------------------------------------------------------------------
-    void checkEmpty(EditText o) {
-        if (o.getText().toString().isEmpty()){Note = "nothing. . .";}
-        else{Note=String.valueOf(LocalDate.now())+":\n"+o.getText().toString();}
+    void checkEmpty(EditText o, int dial) {
+        String check = o.getText().toString();
+        if (check.isEmpty()){Note = "nothing. . .";}
+        else if (dial != 1){
+            Note= check;
+        }
+        else {Note=String.valueOf(LocalDate.now())+":\n"+check;}
     }
     //---------------------------------------------------------------------------------------------
     void logCanceled(){
